@@ -1,0 +1,114 @@
+<% layout("layouts/boilerplate") %>
+    <style>
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter {
+            text-align: center;
+            margin-right: 3rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .filter p {
+            font-size: 13px;
+        }
+    </style>
+
+    <body>
+        <!-- <h3>All Listings</h3> -->
+        <div id="filters">
+            <a href="/listings/filter/Apartment">
+                <div class="filter">
+                    <div><i class="fa-solid fa-building"></i></div>
+                    <p>Apartments</p>
+                </div>
+            </a>
+            <a href="/listings/filter/Villa">
+                <div class="filter">
+                    <div> <i class="fa-solid fa-mountain-city"></i></div>
+                    <p>Villa</p>
+                </div>
+            </a>
+
+            <a href="/listings/filter/Farmhouse">
+                <div class="filter">
+                    <div><i class="fa-solid fa-house-flood-water"></i></div>
+                    <p>Farmhouse</p>
+                </div>
+            </a>
+
+            <a href="/listings/filter/Beachfront">
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <p>Beachfront</p>
+                </div>
+            </a>
+
+            <a href="/listings/filter/Mountain">
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain"></i></div>
+                    <p>Mountain View</p>
+                </div>
+            </a>
+
+            <a href="/listings/filter/City">
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>City</p>
+                </div>
+            </a>
+
+            <a href="/listings/filter/Budget">
+                <div class="filter">
+                    <div><i class="fa-solid fa-wallet"></i></div>
+                    <p>Budget</p>
+                </div>
+            </a>
+
+            <a href="/listings/filter/Luxury">
+                <div class="filter">
+                    <div><i class="fa-solid fa-crown"></i></div>
+                    <p>Luxury</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3 g-3 mb-3">
+            <% for( let listing of AllListings) { %>
+                <div class="col">
+                    <div class="card listing-card">
+                        <a href="/listings/<%= listing._id %>" class="listing-links">
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image"
+                                style="height: 20rem;">
+                            <div class="card-img-overlay"></div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>
+                                        <%= listing.title %>
+                                    </b> <br>
+                                    &#8377 <%= listing.price.toLocaleString("en-IN") %> /Night
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <% if (currUser) { %>
+                        <button class="wishlist-btn btn btn-success" data-id="<%= listing._id %>">
+                            ❤️ Add to Wishlist
+                        </button>
+                        <% } %>
+
+                </div>
+                <% } %>
+
+        </div>
+
+    </body>
