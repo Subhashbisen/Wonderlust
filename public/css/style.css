@@ -134,7 +134,9 @@ body {
 
 #map {
     height: 400px;
-    width: 80vh;
+    width: 100%;
+    /* full container width */
+    border-radius: 10px;
 }
 
 /* filter */
@@ -142,3 +144,4 @@ body {
     text-decoration: none;
     color: black;
 }
+

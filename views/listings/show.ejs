@@ -5,13 +5,13 @@
         let coordinates = JSON.parse('<%- JSON.stringify(listing.geometry.coordinates) %>');
     </script>
 
-    <div class="row mt-3">
-        <div class="col-8 offset-3">
+    <div class="row d-flex flex-column justify-content-center align-items-center mt-3">
+        <div class="col-12 col-md-8 px-5 col-lg-6 mx-auto ">
             <h3>
                 <%= listing.title %>
             </h3>
         </div>
-        <div class="card col-6 offset-3 show-card border-0 listing-card">
+        <div class="card col-12 col-md-8 px-5 col-lg-6 mx-auto show-card border-0 listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
             <div class="card-body">
                 <p class="card-text mt-3">
@@ -46,7 +46,7 @@
             <% } %>
 
 
-                <div class="col-8 offset-3 mb-3">
+                <div class="col-12 col-md-8 px-5 col-lg-6">
                     <% if (currUser) { %>
                         <hr>
                         <h4>Leave A Review</h4>
@@ -88,7 +88,7 @@
                                 <div class="row">
                                     <p class="mt-3"> <b>All Reviews</b></p>
                                     <% for(review of listing.reviews ) { %>
-                                        <div class="card col-5 ms-3 mb-3">
+                                        <div class="card col-5 ms-3 mb-3 ">
                                             <div class="card-body">
                                                 <h5 class="card-title mt-3">
                                                     @<%= review.author.username %>
@@ -110,7 +110,7 @@
                                 </div>
                                 <% } %>
                 </div>
-                <div class="col-8 offset-3 mb-3">
+                <div class="col-12 col-md-8 px-5 col-lg-6 mb-3">
                     <h3>Where you’ll be</h3>
                     <div id="map"></div>
                 </div>
